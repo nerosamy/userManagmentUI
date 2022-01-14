@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="Promo Loyalty"  verbose="5" preserve-order="true" >
+	<parameter name="browserType" value="Chrome" />
+	<parameter name="url" value="http://10.95.0.121:8000/" />
+
+	<test name="Bank Partner tests">
+		<parameter name="partnerType" value="bankPartner" />
+
+		<classes>
+			<class name="com.fawry.promoLoyalty.angularAutomation.tests.LoginTests" />
+			<!--class name="com.fawry.promoLoyalty.angularAutomation.tests.LoyaltyProgsTests" >
+				<methods>
+					<exclude name="checkSingleAccWhenLoginWithRegPartner"/>
+					<exclude name="checkImportSubAccsOfRegPartner"/>
+				</methods>
+			</class>
+
+			<class name="com.fawry.promoLoyalty.angularAutomation.tests.PortalConfigsTests" >
+				<methods>
+					<include name="updatePortalConfig"/>
+					<include name="addPortalConfig"/>
+				</methods>
+			</class>
+
+			<class name="com.fawry.promoLoyalty.angularAutomation.tests.ProgInputsConfigsTests" />
+			
+			<class name="com.fawry.promoLoyalty.angularAutomation.tests.CategoriesTests"></class>
+
+			<class name="com.fawry.promoLoyalty.angularAutomation.tests.ExternalProgsTests" />
+			<class name="com.fawry.promoLoyalty.angularAutomation.tests.ProgRulesTests" /-->
+
+
+
+		</classes>
+	</test>
+
+	<test name="Regular Partner tests">
+		<parameter name="partnerType" value="regularPartner" />
+		<classes>
+			<class name="com.fawry.promoLoyalty.angularAutomation.tests.LoyaltyProgsTests" >
+				<methods>
+					<include name="checkAddNewProgButton"/>
+					<include name="checkSingleAccWhenLoginWithRegPartner"/>
+					<include name="checkImportSubAccsOfRegPartner"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<!--test name="Firefox test">
+		<parameter name="browserType" value="Firefox" />
+		<parameter name="url" value="http://10.95.0.121:8000/" />
+
+
+		<classes>
+			<class name="com.fawry.promoLoyalty.angularAutomation.tests.LoginTests" />
+			<class name="com.fawry.promoLoyalty.angularAutomation.tests.LoyaltyProgsTests" />
+		</classes>
+	</test-->
+	
+
+</suite>
