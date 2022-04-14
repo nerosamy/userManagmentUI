@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Failed suite [Suite]]" guice-stage="DEVELOPMENT" verbose="5">
+  <test thread-count="5" name="MainTest(failed)(failed)" verbose="5">
+    <parameter name="testDataType" value="Excel"/>
+    <parameter name="url" value="http://www.facebook.com"/>
+    <parameter name="browserType" value="CH"/>
+    <classes>
+      <class name="LoginTests">
+        <methods>
+          <include name="closeDriver"/>
+          <include name="login" invocation-numbers="0"/>
+          <include name="loadConfiguration"/>
+        </methods>
+      </class> <!-- LoginTests -->
+    </classes>
+  </test> <!-- MainTest(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Suite]] -->

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT" verbose="5">
+  <test thread-count="5" name="Chrome test(failed)" verbose="5">
+    <parameter name="url" value="http://10.95.0.121:8000/"/>
+    <parameter name="browserType" value="Chrome"/>
+    <classes>
+      <class name="com.fawry.promoLoyalty.angularAutomation.tests.LoyaltyProgsTests">
+        <methods>
+          <include name="loginSuccessfully"/>
+          <include name="updateLoyaltyProgram" invocation-numbers="0 1 2"/>
+          <include name="logTestStatusForReport"/>
+          <include name="closeDriver"/>
+          <include name="provideLoyaltyProgTD"/>
+          <include name="loadConfiguration"/>
+          <include name="endReport"/>
+          <include name="setExtent"/>
+          <include name="navigateToLoyaltyPrograms"/>
+        </methods>
+      </class> <!-- com.fawry.promoLoyalty.angularAutomation.tests.LoyaltyProgsTests -->
+    </classes>
+  </test> <!-- Chrome test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
