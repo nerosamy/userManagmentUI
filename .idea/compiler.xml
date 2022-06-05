@@ -7,10 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="promoLoyaltyTA" />
+        <module name="automation" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="promoLoyaltyTA" target="1.8" />
+      <module name="automation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
