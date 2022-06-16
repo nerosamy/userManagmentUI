@@ -1,0 +1,38 @@
+<settings>
+ 
+<profiles>
+  <profile>
+    <id>nexus</id>
+    <repositories>
+      <repository>
+        <id>nexus-repo</id>
+        <name>Nexus repo</name>
+        <url>http://10.95.0.2:8081/repository/maven-central/</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </repository>
+    </repositories>
+    <pluginRepositories>
+      <pluginRepository>
+        <id>nexus-repo</id>
+        <name>Nexus repo </name>
+        <url>http://10.95.0.2:8081/repository/maven-central/</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </pluginRepository>
+    </pluginRepositories>
+  </profile>
+</profiles>
+
+<activeProfiles>
+  <activeProfile>nexus</activeProfile>
+</activeProfiles>
+ </settings>
