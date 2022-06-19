@@ -208,7 +208,10 @@ public class BaseTest {
 		options.setExperimentalOption("prefs", ChromePrefs);
 		options.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 		options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS,true);
-
+		
+		options.addArguments("--headless");
+		options.addArguments("--no-sandbox");
+		System.out.println(options);
 		return options;
 	}
 

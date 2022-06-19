@@ -1,0 +1,38 @@
+pipeline {
+
+	agent {
+	   docker {
+			image "nexus:8082/sel-test:latest"
+		} 
+    }
+		
+	stages {
+
+	   stage("build") {		
+       	    steps {
+               sh 'mvn  -s resources/settings.xml -Dtestng.dtd.http=true clean test'
+        	}
+		}
+		stage ('archive Artifacts') {
+		
+			steps {
+				sh "tar -czvf  target.tar.gz   target"
+				sh "tar -czvf  test-output.tar.gz    test-output"
+				
+				archiveArtifacts 'target.tar.gz'
+				archiveArtifacts 'test-output.tar.gz'
+				
+				publishHTML (target: [
+					allowMissing: false,
+					alwaysLinkToLastBuild: false,
+					keepAll: true,
+					reportDir: 'test-output/ExtentReport',
+					reportFiles: '*.html',
+					reportName: "BussinessEntityTestAutomation"
+				])
+			}
+		}
+       
+	}
+
+}
