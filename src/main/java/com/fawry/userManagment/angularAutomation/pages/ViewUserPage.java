@@ -6,6 +6,7 @@ import com.fawry.userManagment.angularAutomation.utils.Log;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -53,6 +54,8 @@ public class ViewUserPage extends MainPage{
 
     public ArrayList<UsersDM> searchUser(UsersDM searchDM) {
         ArrayList<UsersDM> usersDMS= new ArrayList<>();
+        Actions action = new Actions(driver);
+
         UsersDM usersDM;
 
         try {
@@ -69,6 +72,7 @@ public class ViewUserPage extends MainPage{
                 for (WebElement searchResultsRow : searchResultsRows) {
                     usersDM = new UsersDM();
                     List<WebElement> rows = searchResultsRow.findElements(By.tagName("td"));
+                    action.moveToElement(rows.get(1));
                     usersDM.setEmail(rows.get(0).getText());
                     usersDM.setPhone(rows.get(1).getText());
                     usersDM.setStatus(rows.get(2).getText());
