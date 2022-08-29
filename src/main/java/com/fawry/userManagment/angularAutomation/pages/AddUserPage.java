@@ -9,6 +9,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -106,7 +107,7 @@ public class AddUserPage extends MainPage{
 
     public String editUser(UsersDM usersDM) {
         try {
-            Log.info("Edit user's data ......");
+            Log.info("Edit user's data in GUI");
             if (usersDM.getRole() != "") {
                 ArrayList<String> selectedOptions = unselectAllOptions();
                 rolesDropDown.click();
@@ -123,15 +124,15 @@ public class AddUserPage extends MainPage{
 
             usersDM.setBranch(selectAnotherOption(branchDropDown , usersDM.getBranch()));
 
-          if (usersDM.getStatus() != "") {
-              for (int i = 0; i < statusRadioButtons.size(); i++) {
-                  if (!statusRadioButtons.get(i).getAttribute("class").contains("p-radiobutton-checked")) {
-                      statusRadioButtons.get(i).click();
-                      usersDM.setStatus(statusText.get(i).getText());
-                      break;
-                  }
-              }
-          }
+            if (usersDM.getStatus() != "") {
+                for (int i = 0; i < statusRadioButtons.size(); i++) {
+                    if (!statusRadioButtons.get(i).getAttribute("class").contains("p-radiobutton-checked")) {
+                        statusRadioButtons.get(i).click();
+                        usersDM.setStatus(statusText.get(i).getText());
+                        break;
+                    }
+                }
+            }
             if (usersDM.getMustChangePassword() != "")
             {
                 WebElement mustChangePasswordFlag = mustChangePasswordCheckBox.findElement(By.xpath("//div"));
@@ -197,17 +198,17 @@ public class AddUserPage extends MainPage{
     public ArrayList<String> unselectAllOptions() {
         ArrayList<String> selectedOptions=new ArrayList<>();
         try {
-          rolesDropDown.click();
-          int size = rolesDropDownOptions.size();
-          for (int i = 0 ; i < size ; i++)
-          {
-              if (rolesDropDownOptions.get(i).getAttribute("class").contains("p-highlight"))
-              {
-                  selectedOptions.add(rolesDropDownOptions.get(i).getText());
-                  rolesDropDownOptions.get(i).click();
-              }
-          }
-          rolesDropDown.click();
+            rolesDropDown.click();
+            int size = rolesDropDownOptions.size();
+            for (int i = 0 ; i < size ; i++)
+            {
+                if (rolesDropDownOptions.get(i).getAttribute("class").contains("p-highlight"))
+                {
+                    selectedOptions.add(rolesDropDownOptions.get(i).getText());
+                    rolesDropDownOptions.get(i).click();
+                }
+            }
+            rolesDropDown.click();
 
         } catch (Exception e) {
             Log.error("Error occurred in " + new Object() {

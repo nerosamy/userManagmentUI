@@ -90,6 +90,7 @@ public class RolesDAO {
         }
         return rolesDMS;
     }
+
     public String getNotAssignedRoleName(Connection dbConn) throws SQLException {
 
         //Create DB Query to selected added/updated Category

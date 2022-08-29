@@ -33,7 +33,7 @@ public class ViewUserTest extends BaseTest{
     }
 
 
-    @Test(description = "Validate view User functionalities",priority = 0 ,dataProvider = "listUsersDP" ,enabled = true)
+    @Test(description = "Validate view User functionalities",priority = 0 ,dataProvider = "listUsersDP" ,enabled = false)
     public void listUser(UsersDM usersDM) {
         //Create extent test to be logged in report using test case title
         test = extent.createTest(usersDM.getTestCaseId() + " --- " + usersDM.getTestCaseTitle());

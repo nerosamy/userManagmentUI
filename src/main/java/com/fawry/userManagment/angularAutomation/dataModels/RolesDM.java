@@ -38,4 +38,5 @@ public class RolesDM extends MainDataModel{
     public void setPermissions(String permissions) {
         this.permissions = permissions;
     }
+
 }
