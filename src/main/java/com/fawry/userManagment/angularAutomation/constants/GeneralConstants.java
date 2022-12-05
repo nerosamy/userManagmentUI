@@ -20,6 +20,7 @@ public class GeneralConstants {
 	public static final String Expected_ERR_MSG = "Test Failed due to Expected and Actual Results doesn't Match";
 	public static final String DB_ERROR_MSG = "No results found in DB or DB error occurred";
 	public static final String ERR_TYPE_PAGE = "page";
+	public static final String WELCOME_MSG = "Welcome";
 	public static final String ERR_TYPE_NOTIFICATION = "notification";
 	public static final String STATUS_INITIATED = "INITIATED";
 	public static final String STATUS_ACTIVE = "ACTIVE";

@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ViewRolesPage extends MainPage{
     public ViewRolesPage(WebDriver driver) {
@@ -151,8 +152,9 @@ public class ViewRolesPage extends MainPage{
     {
         try {
             Log.info("Click remove button");
-            Thread.sleep(500);
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             deleteRoleButton.get(0).click();
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             yesButton.click();
         } catch (Exception e) {
             Log.error("Error occurred in " + new Object() {

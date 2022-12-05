@@ -1,0 +1,3319 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link href='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Users Management Test Report</title>
+
+	<style type='text/css'>
+		/* json-tree */
+		.jstBracket,.jstComma,.jstValue{white-space:pre-wrap}.jstValue{font-size:10px;font-weight:400;font-family:"Lucida Console",Monaco,monospace}.jstProperty{color:#666;word-wrap:break-word}.jstBool{color:#2525CC}.jstNum{color:#D036D0}.jstNull{color:gray}.jstStr{color:#2DB669}.jstFold:after{content:' -';cursor:pointer}.jstExpand{white-space:normal}.jstExpand:after{content:' +';cursor:pointer}.jstFolded{white-space:normal!important}.jstHiddenBlock{display:none}
+	</style>
+	
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+</head>
+	<body class='extent dark default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo black"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></a>
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
+		</ul>
+		<!-- report name -->
+		<span class='report-name'>Users Management Test Report</span>
+		<!-- report headline -->
+		<span class='report-headline'></span>
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+			<span class='label blue darken-3 suite-start-time'>Nov 28, 2022 02:12:23 PM</span>
+			</a>
+		</ul>
+	</div>
+</nav>		<!-- container -->
+		<div class='container'>
+<div id='test-view' class='view'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+			<!-- category toggle -->
+			<!-- category toggle -->
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+				<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+				<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m12 l12 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Tests</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='parent-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='80%'><span class='strong'>12</span> test(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='20%'>3</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeline-chart" class="row nm-v nm-h">
+        <div class="col s12 m12 l12 np-h">
+            <div class="card-panel">
+                <div class='left panel-name'>Timeline (seconds)</div>
+                <div class="chart-box" style="width:98%;max-height:145px;">
+                    <canvas id="timeline" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='test-collection' class='test-collection'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-01 --- Verify add new user by filling all mandatory fields</span>
+						<span class='test-time'>Nov 28, 2022 02:20:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:20:02 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:21:43 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 41s+318ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:20:02 PM</td>
+				<td class='step-details'>
+						TC-01 --- Verify add new user by filling all mandatory fields Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:32 PM</td>
+				<td class='step-details'>
+						Setting User details ..............
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:36 PM</td>
+				<td class='step-details'>
+						click save button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:39 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:40 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  2
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:40 PM</td>
+				<td class='step-details'>
+						Actual Result = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:40 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:40 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:40 PM</td>
+				<td class='step-details'>
+						*********  Frontend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:40 PM</td>
+				<td class='step-details'>
+						*********  Start backend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:40 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:42 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:42 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:42 PM</td>
+				<td class='step-details'>
+						select u.email as EMAIL , u.mobile_number  as PHONE, r.name_en as ROLE_NAME, b.name_en as BRANCH , u.status as STATUS , u.must_change_password as MUST_CHANGE_PASSWORD , u.password_never_expire as PASSWORD_NEVER_EXPIRE  from auth_user u  left join BUSINESS_ENTITY.branch b on b.code = u.branch_code  left join user_role ur on ur.user_id = u.id  left join role r on r.id = ur.role_id  left join business_entity be on be.id  = u.business_entity_id  where be.email = 'RTLnvoice1@fawry.com'  and u.email='UserAuto02200002@automation.com'  and r.name_en <> 'Super admin'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:42 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:42 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:42 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:42 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:42 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS addUser in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:21:42 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is addUser
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:42 PM</td>
+				<td class='step-details'>
+						addUser Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:43 PM</td>
+				<td class='step-details'>
+						Navigate to Add Users Page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-02 --- Verify add new user by filling all fields</span>
+						<span class='test-time'>Nov 28, 2022 02:21:45 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:21:45 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:23:24 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 38s+798ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:21:45 PM</td>
+				<td class='step-details'>
+						TC-02 --- Verify add new user by filling all fields Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:16 PM</td>
+				<td class='step-details'>
+						Setting User details ..............
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:20 PM</td>
+				<td class='step-details'>
+						click save button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:22 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:22 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  2
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:22 PM</td>
+				<td class='step-details'>
+						Actual Result = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:22 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:22 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:22 PM</td>
+				<td class='step-details'>
+						*********  Frontend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:22 PM</td>
+				<td class='step-details'>
+						*********  Start backend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:22 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:23 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:23 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:23 PM</td>
+				<td class='step-details'>
+						select u.email as EMAIL , u.mobile_number  as PHONE, r.name_en as ROLE_NAME, b.name_en as BRANCH , u.status as STATUS , u.must_change_password as MUST_CHANGE_PASSWORD , u.password_never_expire as PASSWORD_NEVER_EXPIRE  from auth_user u  left join BUSINESS_ENTITY.branch b on b.code = u.branch_code  left join user_role ur on ur.user_id = u.id  left join role r on r.id = ur.role_id  left join business_entity be on be.id  = u.business_entity_id  where be.email = 'RTLnvoice1@fawry.com'  and u.email='UserAuto02210045@automation.com'  and r.name_en <> 'Super admin'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:24 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:24 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:24 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:24 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:24 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS addUser in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:23:24 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is addUser
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:24 PM</td>
+				<td class='step-details'>
+						addUser Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:24 PM</td>
+				<td class='step-details'>
+						Navigate to Add Users Page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-03 --- Verify add new user with ACTIVE status</span>
+						<span class='test-time'>Nov 28, 2022 02:23:27 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:23:27 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:25:05 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 38s+420ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:23:27 PM</td>
+				<td class='step-details'>
+						TC-03 --- Verify add new user with ACTIVE status Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:24:57 PM</td>
+				<td class='step-details'>
+						Setting User details ..............
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:01 PM</td>
+				<td class='step-details'>
+						click save button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:03 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:03 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  2
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:03 PM</td>
+				<td class='step-details'>
+						Actual Result = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:03 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:03 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:03 PM</td>
+				<td class='step-details'>
+						*********  Frontend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:03 PM</td>
+				<td class='step-details'>
+						*********  Start backend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:03 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:04 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:04 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:04 PM</td>
+				<td class='step-details'>
+						select u.email as EMAIL , u.mobile_number  as PHONE, r.name_en as ROLE_NAME, b.name_en as BRANCH , u.status as STATUS , u.must_change_password as MUST_CHANGE_PASSWORD , u.password_never_expire as PASSWORD_NEVER_EXPIRE  from auth_user u  left join BUSINESS_ENTITY.branch b on b.code = u.branch_code  left join user_role ur on ur.user_id = u.id  left join role r on r.id = ur.role_id  left join business_entity be on be.id  = u.business_entity_id  where be.email = 'RTLnvoice1@fawry.com'  and u.email='UserAuto02230027@automation.com'  and r.name_en <> 'Super admin'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:05 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:05 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:05 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:05 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:05 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS addUser in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:25:05 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is addUser
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:05 PM</td>
+				<td class='step-details'>
+						addUser Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:05 PM</td>
+				<td class='step-details'>
+						Navigate to Add Users Page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-04 --- Verify add new user with INACTIVE status</span>
+						<span class='test-time'>Nov 28, 2022 02:25:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:25:07 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:26:46 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 38s+290ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:25:07 PM</td>
+				<td class='step-details'>
+						TC-04 --- Verify add new user with INACTIVE status Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:38 PM</td>
+				<td class='step-details'>
+						Setting User details ..............
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:41 PM</td>
+				<td class='step-details'>
+						click save button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:43 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:44 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  2
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:44 PM</td>
+				<td class='step-details'>
+						Actual Result = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:44 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:44 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:44 PM</td>
+				<td class='step-details'>
+						*********  Frontend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:44 PM</td>
+				<td class='step-details'>
+						*********  Start backend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:44 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:45 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:45 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:45 PM</td>
+				<td class='step-details'>
+						select u.email as EMAIL , u.mobile_number  as PHONE, r.name_en as ROLE_NAME, b.name_en as BRANCH , u.status as STATUS , u.must_change_password as MUST_CHANGE_PASSWORD , u.password_never_expire as PASSWORD_NEVER_EXPIRE  from auth_user u  left join BUSINESS_ENTITY.branch b on b.code = u.branch_code  left join user_role ur on ur.user_id = u.id  left join role r on r.id = ur.role_id  left join business_entity be on be.id  = u.business_entity_id  where be.email = 'RTLnvoice1@fawry.com'  and u.email='UserAuto02250007@automation.com'  and r.name_en <> 'Super admin'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:45 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:45 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:45 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:45 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:45 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS addUser in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:26:45 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is addUser
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:45 PM</td>
+				<td class='step-details'>
+						addUser Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:46 PM</td>
+				<td class='step-details'>
+						Navigate to Add Users Page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-05 --- Verify add new user with BLOCKED status</span>
+						<span class='test-time'>Nov 28, 2022 02:26:48 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:26:48 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:28:26 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 38s+498ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:26:48 PM</td>
+				<td class='step-details'>
+						TC-05 --- Verify add new user with BLOCKED status Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:18 PM</td>
+				<td class='step-details'>
+						Setting User details ..............
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:22 PM</td>
+				<td class='step-details'>
+						click save button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:24 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:24 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  2
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:25 PM</td>
+				<td class='step-details'>
+						Actual Result = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:25 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:25 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:25 PM</td>
+				<td class='step-details'>
+						*********  Frontend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:25 PM</td>
+				<td class='step-details'>
+						*********  Start backend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:25 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						select u.email as EMAIL , u.mobile_number  as PHONE, r.name_en as ROLE_NAME, b.name_en as BRANCH , u.status as STATUS , u.must_change_password as MUST_CHANGE_PASSWORD , u.password_never_expire as PASSWORD_NEVER_EXPIRE  from auth_user u  left join BUSINESS_ENTITY.branch b on b.code = u.branch_code  left join user_role ur on ur.user_id = u.id  left join role r on r.id = ur.role_id  left join business_entity be on be.id  = u.business_entity_id  where be.email = 'RTLnvoice1@fawry.com'  and u.email='UserAuto02260048@automation.com'  and r.name_en <> 'Super admin'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS addUser in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is addUser
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						addUser Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:26 PM</td>
+				<td class='step-details'>
+						Navigate to Add Users Page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-06 --- Verify add new user with flag "Must Change Password After First Login" checked</span>
+						<span class='test-time'>Nov 28, 2022 02:28:29 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:28:29 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:30:27 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 58s+305ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:28:29 PM</td>
+				<td class='step-details'>
+						TC-06 --- Verify add new user with flag "Must Change Password After First Login" checked Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:29:59 PM</td>
+				<td class='step-details'>
+						Setting User details ..............
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:30:03 PM</td>
+				<td class='step-details'>
+						click save button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:30:05 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:30:06 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  2
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:30:06 PM</td>
+				<td class='step-details'>
+						Actual Result = Error 21#Email already Exits
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:30:06 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:30:06 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:30:06 PM</td>
+				<td class='step-details'>
+						logging Testcase FAILED addUser in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>2:30:06 PM</td>
+				<td class='step-details'>
+						addUser HAS FAILED
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>2:30:06 PM</td>
+				<td class='step-details'>
+						EXCEPTION Thrown is java.lang.AssertionError: Test Failed due to Expected and Actual Results doesn't Match expected [success#Operation done successfully!] but found [Error 21#Email already Exits]
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:30:06 PM</td>
+				<td class='step-details'>
+						Initializing remote connection to server of log file...
+					
+				</td>
+			</tr>
+			<tr class='log' status='warning'>
+				<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+				<td class='timestamp'>2:30:27 PM</td>
+				<td class='step-details'>
+						Error occured while logging testcase addUser result to extent report
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:30:27 PM</td>
+				<td class='step-details'>
+						Navigate to Add Users Page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-07 --- Verify add new user with flag "Password Never Expired" checked</span>
+						<span class='test-time'>Nov 28, 2022 02:30:29 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:30:29 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:32:50 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 2m 20s+579ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:30:29 PM</td>
+				<td class='step-details'>
+						TC-07 --- Verify add new user with flag "Password Never Expired" checked Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:00 PM</td>
+				<td class='step-details'>
+						Setting User details ..............
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:04 PM</td>
+				<td class='step-details'>
+						click save button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:06 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:06 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  2
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:06 PM</td>
+				<td class='step-details'>
+						Actual Result = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:06 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:06 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:06 PM</td>
+				<td class='step-details'>
+						*********  Frontend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:06 PM</td>
+				<td class='step-details'>
+						*********  Start backend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:06 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:07 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:07 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:07 PM</td>
+				<td class='step-details'>
+						select u.email as EMAIL , u.mobile_number  as PHONE, r.name_en as ROLE_NAME, b.name_en as BRANCH , u.status as STATUS , u.must_change_password as MUST_CHANGE_PASSWORD , u.password_never_expire as PASSWORD_NEVER_EXPIRE  from auth_user u  left join BUSINESS_ENTITY.branch b on b.code = u.branch_code  left join user_role ur on ur.user_id = u.id  left join role r on r.id = ur.role_id  left join business_entity be on be.id  = u.business_entity_id  where be.email = 'RTLnvoice1@fawry.com'  and u.email='UserAuto02300029@automation.com'  and r.name_en <> 'Super admin'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:08 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:08 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:08 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:08 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:08 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS addUser in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:32:08 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is addUser
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:08 PM</td>
+				<td class='step-details'>
+						addUser Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:08 PM</td>
+				<td class='step-details'>
+						Closing selenium Web driver after Class
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:09 PM</td>
+				<td class='step-details'>
+						Initialize Selenium webdriver before tests' Class
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:16 PM</td>
+				<td class='step-details'>
+						Selenium webdriver was initialized successfully
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:16 PM</td>
+				<td class='step-details'>
+						Login with valid credentials before class tests to be able to navigate to required pages from homepage
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:16 PM</td>
+				<td class='step-details'>
+						*******   Create an instance of ServiceDelegate to access backend DB    ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:16 PM</td>
+				<td class='step-details'>
+						Retrieving Test data of testcase editUser
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:16 PM</td>
+				<td class='step-details'>
+						Retrieving Test data of testcase listUser
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:21 PM</td>
+				<td class='step-details'>
+						null Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:26 PM</td>
+				<td class='step-details'>
+						Navigate to View Users page
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:28 PM</td>
+				<td class='step-details'>
+						null Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:28 PM</td>
+				<td class='step-details'>
+						Navigate to View Users page
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:31 PM</td>
+				<td class='step-details'>
+						null Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:31 PM</td>
+				<td class='step-details'>
+						Navigate to View Users page
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:33 PM</td>
+				<td class='step-details'>
+						null Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:34 PM</td>
+				<td class='step-details'>
+						Navigate to View Users page
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:36 PM</td>
+				<td class='step-details'>
+						null Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:36 PM</td>
+				<td class='step-details'>
+						Navigate to View Users page
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:39 PM</td>
+				<td class='step-details'>
+						null Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:39 PM</td>
+				<td class='step-details'>
+						Closing selenium Web driver after Class
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:39 PM</td>
+				<td class='step-details'>
+						Initialize Selenium webdriver before tests' Class
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:45 PM</td>
+				<td class='step-details'>
+						Selenium webdriver was initialized successfully
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:45 PM</td>
+				<td class='step-details'>
+						Login with valid credentials before class tests to be able to navigate to required pages from homepage
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:45 PM</td>
+				<td class='step-details'>
+						*******   Create an instance of ServiceDelegate to access backend DB    ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:50 PM</td>
+				<td class='step-details'>
+						Navigate to Add Roles Page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-17 --- Validate add new role by select all permissions</span>
+						<span class='test-time'>Nov 28, 2022 02:32:50 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:32:50 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:34:32 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 41s+517ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:50 PM</td>
+				<td class='step-details'>
+						TC-17 --- Validate add new role by select all permissions Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:50 PM</td>
+				<td class='step-details'>
+						Setting role details ........................
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:32:52 PM</td>
+				<td class='step-details'>
+						Selecting all permissions from GUI
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:27 PM</td>
+				<td class='step-details'>
+						click save button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:29 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:30 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  2
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:30 PM</td>
+				<td class='step-details'>
+						Actual Result = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:30 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:30 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:30 PM</td>
+				<td class='step-details'>
+						*********  Frontend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:30 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:31 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:31 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:31 PM</td>
+				<td class='step-details'>
+						Select r.name_en as NAME_EN , r.name_ar as NAME_AR , r.description as DESCRIPTION , p.name_en as PERMISSION_NAME  from Role r left join role_permission rp on rp.role_id=r.id  left join permission p on p.id= rp.permission_id  where r.name_en = 'RoleEnglishName02320050'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:31 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:31 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:31 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:31 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:31 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS addRoleWithAllPermissions in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:34:31 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is addRoleWithAllPermissions
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:31 PM</td>
+				<td class='step-details'>
+						addRoleWithAllPermissions Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:32 PM</td>
+				<td class='step-details'>
+						Navigate to Add Roles Page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-18 --- Validate add new role by specific permission permission</span>
+						<span class='test-time'>Nov 28, 2022 02:34:32 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:34:32 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:34:49 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+600ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:32 PM</td>
+				<td class='step-details'>
+						TC-18 --- Validate add new role by specific permission permission Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:32 PM</td>
+				<td class='step-details'>
+						Setting role details ........................
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:33 PM</td>
+				<td class='step-details'>
+						Selecting Specific permission from GUI
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:33 PM</td>
+				<td class='step-details'>
+						click save button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:36 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:36 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  2
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:36 PM</td>
+				<td class='step-details'>
+						Actual Result = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:36 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:36 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:36 PM</td>
+				<td class='step-details'>
+						*********  Frontend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:36 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:37 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:37 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:37 PM</td>
+				<td class='step-details'>
+						Select r.name_en as NAME_EN , r.name_ar as NAME_AR , r.description as DESCRIPTION , p.name_en as PERMISSION_NAME  from Role r left join role_permission rp on rp.role_id=r.id  left join permission p on p.id= rp.permission_id  where r.name_en = 'RoleEnglishName02340032'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:38 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:38 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:38 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:38 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:38 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS addRoleWithSelectedPermission in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:34:38 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is addRoleWithSelectedPermission
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:38 PM</td>
+				<td class='step-details'>
+						addRoleWithSelectedPermission Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:38 PM</td>
+				<td class='step-details'>
+						Closing selenium Web driver after Class
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:38 PM</td>
+				<td class='step-details'>
+						Initialize Selenium webdriver before tests' Class
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:44 PM</td>
+				<td class='step-details'>
+						Selenium webdriver was initialized successfully
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:44 PM</td>
+				<td class='step-details'>
+						Login with valid credentials before class tests to be able to navigate to required pages from homepage
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:44 PM</td>
+				<td class='step-details'>
+						*******   Create an instance of ServiceDelegate to access backend DB    ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:44 PM</td>
+				<td class='step-details'>
+						Retrieving Test data of testcase listRoles
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:49 PM</td>
+				<td class='step-details'>
+						Navigate to View Roles page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='10'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-19 --- Verify list roles by name</span>
+						<span class='test-time'>Nov 28, 2022 02:34:50 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:34:50 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:36:27 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 37s+254ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:34:50 PM</td>
+				<td class='step-details'>
+						TC-19 --- Verify list roles by name Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:26 PM</td>
+				<td class='step-details'>
+						*********  Start backend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:26 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						select DISTINCT r.id , r.name_en as NAME_EN , r.name_ar as NAME_AR , r.description as DESCRIPTION  from Role r left join role_permission rp on rp.role_id=r.id  left join permission p on p.id= rp.permission_id  left join business_entity be on be.id = r.business_entity_id where be.email='RTLnvoice1@fawry.com'  and r.name_en <>'Super admin' and r.name_ar <> 'Super admin' and r.active <> '0'and r.name_ar like '%Role%'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS listRoles in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is listRoles
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						listRoles Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						Navigate to View Roles page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-20 --- Verify list roles by permission</span>
+						<span class='test-time'>Nov 28, 2022 02:36:27 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:36:27 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:38:04 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 36s+575ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:36:27 PM</td>
+				<td class='step-details'>
+						TC-20 --- Verify list roles by permission Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:03 PM</td>
+				<td class='step-details'>
+						*********  Start backend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:03 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						select DISTINCT r.id , r.name_en as NAME_EN , r.name_ar as NAME_AR , r.description as DESCRIPTION  from Role r left join role_permission rp on rp.role_id=r.id  left join permission p on p.id= rp.permission_id  left join business_entity be on be.id = r.business_entity_id where be.email='RTLnvoice1@fawry.com'  and r.name_en <>'Super admin' and r.name_ar <> 'Super admin' and r.active <> '0'and p.name_en='single invoices management'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS listRoles in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is listRoles
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						listRoles Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						Navigate to View Roles page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='12'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-21 --- Verify list all roles</span>
+						<span class='test-time'>Nov 28, 2022 02:38:04 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:38:04 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:39:41 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 36s+529ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:38:04 PM</td>
+				<td class='step-details'>
+						TC-21 --- Verify list all roles Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:39 PM</td>
+				<td class='step-details'>
+						*********  Start backend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:39 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:40 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:40 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:40 PM</td>
+				<td class='step-details'>
+						select DISTINCT r.id , r.name_en as NAME_EN , r.name_ar as NAME_AR , r.description as DESCRIPTION  from Role r left join role_permission rp on rp.role_id=r.id  left join permission p on p.id= rp.permission_id  left join business_entity be on be.id = r.business_entity_id where be.email='RTLnvoice1@fawry.com'  and r.name_en <>'Super admin' and r.name_ar <> 'Super admin' and r.active <> '0'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:40 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:40 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:40 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:40 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:40 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS listRoles in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:39:40 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is listRoles
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:40 PM</td>
+				<td class='step-details'>
+						listRoles Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:41 PM</td>
+				<td class='step-details'>
+						Navigate to View Roles page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-22 --- Validate edit role functionality</span>
+						<span class='test-time'>Nov 28, 2022 02:39:41 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:39:41 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:39:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 6s+985ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:41 PM</td>
+				<td class='step-details'>
+						TC-22 --- Validate edit role functionality Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:41 PM</td>
+				<td class='step-details'>
+						Click edit button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:41 PM</td>
+				<td class='step-details'>
+						Edit role data ........................
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:43 PM</td>
+				<td class='step-details'>
+						click save button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:45 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:46 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  2
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:46 PM</td>
+				<td class='step-details'>
+						Actual Result = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:46 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:46 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:46 PM</td>
+				<td class='step-details'>
+						*********  Frontend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:46 PM</td>
+				<td class='step-details'>
+						*********  Start BackEnd Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:46 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:47 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:47 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:47 PM</td>
+				<td class='step-details'>
+						Select r.name_en as NAME_EN , r.name_ar as NAME_AR , r.description as DESCRIPTION , p.name_en as PERMISSION_NAME  from Role r left join role_permission rp on rp.role_id=r.id  left join permission p on p.id= rp.permission_id  where r.name_en = 'Financial Role'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:48 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:48 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:48 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:48 PM</td>
+				<td class='step-details'>
+						*********  Backend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:48 PM</td>
+				<td class='step-details'>
+						logging Testcase SUCCESS editRole in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>2:39:48 PM</td>
+				<td class='step-details'>
+						Test Case PASSED is editRole
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:48 PM</td>
+				<td class='step-details'>
+						editRole Test has ENDED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:48 PM</td>
+				<td class='step-details'>
+						Navigate to View Roles page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='14'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-23 --- Validate delete Un-assigned Role functionality</span>
+						<span class='test-time'>Nov 28, 2022 02:39:48 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:39:48 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:40:14 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 26s+101ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:48 PM</td>
+				<td class='step-details'>
+						TC-23 --- Validate delete Un-assigned Role functionality Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:48 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:50 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:50 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:50 PM</td>
+				<td class='step-details'>
+						Select r.name_en as NAME_EN   from Role r  left join business_entity be on be.id = r.business_entity_id  where r.id not in (select ur.role_id from user_role ur)  and be.email='RTLnvoice1@fawry.com'  and r.name_en <> 'Super admin' and r.active <> '0'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:50 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:50 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:50 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:50 PM</td>
+				<td class='step-details'>
+						Search Roles by name : RoleEnglishName02180017
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:50 PM</td>
+				<td class='step-details'>
+						Click remove button
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:51 PM</td>
+				<td class='step-details'>
+						Start collecting all massages
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:51 PM</td>
+				<td class='step-details'>
+						Number of displayed pop-up notification error messages in page is :  6
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:52 PM</td>
+				<td class='step-details'>
+						Actual Result = success#Operation done successfully!#success#Can not delete role as it has users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:52 PM</td>
+				<td class='step-details'>
+						*********  Start frontend Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:52 PM</td>
+				<td class='step-details'>
+						Expected massage = success#Operation done successfully!
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:52 PM</td>
+				<td class='step-details'>
+						*********  Frontend Assertion passed successfully ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:52 PM</td>
+				<td class='step-details'>
+						*********  Start BackEnd Assertion  ********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:52 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:53 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:53 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:53 PM</td>
+				<td class='step-details'>
+						select r.active as STATUS from Role r where r.name_en ='RoleEnglishName02180017'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:53 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:53 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:53 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:53 PM</td>
+				<td class='step-details'>
+						logging Testcase FAILED deleteUnassignedRole in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>2:39:53 PM</td>
+				<td class='step-details'>
+						deleteUnassignedRole HAS FAILED
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>2:39:53 PM</td>
+				<td class='step-details'>
+						EXCEPTION Thrown is java.lang.AssertionError: The following asserts failed:
+	ROLE.STATUS Value in DB Mismatched the VALUE in page expected [0] but found [1]
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:39:53 PM</td>
+				<td class='step-details'>
+						Initializing remote connection to server of log file...
+					
+				</td>
+			</tr>
+			<tr class='log' status='warning'>
+				<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+				<td class='timestamp'>2:40:14 PM</td>
+				<td class='step-details'>
+						Error occured while logging testcase deleteUnassignedRole result to extent report
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:14 PM</td>
+				<td class='step-details'>
+						Navigate to View Roles page
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>TC-24 --- Validate delete assigned Role functionality</span>
+						<span class='test-time'>Nov 28, 2022 02:40:14 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 28, 2022 02:40:14 PM</span>
+	<span class='label end-time'>Nov 28, 2022 02:42:09 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 54s+942ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:14 PM</td>
+				<td class='step-details'>
+						TC-24 --- Validate delete assigned Role functionality Test is CREATED
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:14 PM</td>
+				<td class='step-details'>
+						***********      Openning DB connection to USERS       **************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:16 PM</td>
+				<td class='step-details'>
+						**********      DB Connection created successfully to USERS       ***********
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:16 PM</td>
+				<td class='step-details'>
+						*********      Executing DB Query     ************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:16 PM</td>
+				<td class='step-details'>
+						Select r.name_en as NAME_EN   from Role r  left join business_entity be on be.id = r.business_entity_id  where r.id in (select ur.role_id from user_role ur)  and be.email='RTLnvoice1@fawry.com'  and r.name_en <> 'Super admin' and r.active <> '0'
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:16 PM</td>
+				<td class='step-details'>
+						************     DB Query executed successfully     ***************
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:16 PM</td>
+				<td class='step-details'>
+						******     Closing DB Connection      *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:16 PM</td>
+				<td class='step-details'>
+						******      DB Connection closed successfully     *******
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:16 PM</td>
+				<td class='step-details'>
+						Search Roles by name : المدير الأساسي
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:40:16 PM</td>
+				<td class='step-details'>
+						Click remove button
+					
+				</td>
+			</tr>
+			<tr class='log' status='error'>
+				<td class='status error' title='error' alt='error'><i class='material-icons'>error</i></td>
+				<td class='timestamp'>2:41:47 PM</td>
+				<td class='step-details'>
+						Error occurred in com.fawry.userManagment.angularAutomation.pages.ViewRolesPage$7.clickRemoveRoleButton
+					
+				</td>
+			</tr>
+			<tr class='log' status='error'>
+				<td class='status error' title='error' alt='error'><i class='material-icons'>error</i></td>
+				<td class='timestamp'>2:41:47 PM</td>
+				<td class='step-details'>
+						Index 0 out of bounds for length 0
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:41:47 PM</td>
+				<td class='step-details'>
+						logging Testcase FAILED deleteAssignedRole in Extent Report
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>2:41:47 PM</td>
+				<td class='step-details'>
+						deleteAssignedRole HAS FAILED
+					
+				</td>
+			</tr>
+			<tr class='log' status='fail'>
+				<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+				<td class='timestamp'>2:41:47 PM</td>
+				<td class='step-details'>
+						EXCEPTION Thrown is java.lang.AssertionError: Test Failed due to an exception occurred in POM's method While click remove button. expected [Success] but found [Failed]
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:41:47 PM</td>
+				<td class='step-details'>
+						Initializing remote connection to server of log file...
+					
+				</td>
+			</tr>
+			<tr class='log' status='warning'>
+				<td class='status warning' title='warning' alt='warning'><i class='material-icons'>warning</i></td>
+				<td class='timestamp'>2:42:08 PM</td>
+				<td class='step-details'>
+						Error occured while logging testcase deleteAssignedRole result to extent report
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:42:08 PM</td>
+				<td class='step-details'>
+						Closing selenium Web driver after Class
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>2:42:09 PM</td>
+				<td class='step-details'>
+						Closing Extent report after Suite
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<div id='step-filters' class="right sr-filters">
+				<a class="btn-floating waves-effect waves-light green" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></a>
+				<a class="btn-floating waves-effect waves-light red" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light red darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light pink text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></a>
+				<a class="btn-floating waves-effect waves-light orange" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></a>
+				<a class="btn-floating waves-effect waves-light teal" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></a>
+				<a class="btn-floating waves-effect waves-light grey" status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></a>
+			</div>
+			<h5 class='test-name'></h5>
+		</div>
+	</div>
+	<!-- subview right -->
+</div>
+<!-- test view --><!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>15</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>0</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Nov 28, 2022 02:12:23 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Nov 28, 2022 02:42:09 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 29m 46s+223ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Environemnt</td>
+								<td>QA</td>
+							</tr>
+							<tr>
+								<td>Browser</td>
+								<td>Chrome</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->		</div>
+		<!-- container -->
+		<script>
+			var statusGroup = {
+                parentCount: 15,
+				passParent: 12,
+				failParent: 3,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 3,
+				childCount: 0,
+				passChild: 0,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				debugChild: 0,
+				exceptionsChild: 0,
+				grandChildCount: 0,
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				debugGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		<script>
+			var timeline = {
+			        "TC-01 --- Verify add new user by filling all mandatory fields":101.318,"TC-02 --- Verify add new user by filling all fields":98.798,"TC-03 --- Verify add new user with ACTIVE status":98.42,"TC-04 --- Verify add new user with INACTIVE status":98.29,"TC-05 --- Verify add new user with BLOCKED status":98.498,"TC-06 --- Verify add new user with flag "Must Change Password After First Login" checked":118.305,"TC-07 --- Verify add new user with flag "Password Never Expired" checked":140.579,"TC-17 --- Validate add new role by select all permissions":101.517,"TC-18 --- Validate add new role by specific permission permission":17.6,"TC-19 --- Verify list roles by name":97.254,"TC-20 --- Verify list roles by permission":96.575,"TC-21 --- Verify list all roles":96.529,"TC-22 --- Validate edit role functionality":6.985,"TC-23 --- Validate delete Un-assigned Role functionality":26.101,"TC-24 --- Validate delete assigned Role functionality":114.942
+			};
+		</script>
+		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
+		<script type='text/javascript'>
+		</script>
+	</body>
+</html>

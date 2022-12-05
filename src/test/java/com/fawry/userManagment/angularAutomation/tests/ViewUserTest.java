@@ -8,6 +8,7 @@ import com.fawry.userManagment.angularAutomation.constants.excelIndices.EditUser
 import com.fawry.userManagment.angularAutomation.constants.excelIndices.ListUserIndices;
 import com.fawry.userManagment.angularAutomation.dataModels.UsersDM;
 import com.fawry.userManagment.angularAutomation.pages.AddUserPage;
+import com.fawry.userManagment.angularAutomation.pages.MainPage;
 import com.fawry.userManagment.angularAutomation.pages.ViewUserPage;
 import com.fawry.userManagment.angularAutomation.utils.Log;
 import org.testng.Assert;
@@ -25,6 +26,8 @@ public class ViewUserTest extends BaseTest{
     @BeforeMethod(alwaysRun = true)
     public void navigateToViewUserPage(String url) {
         Assert.assertEquals(homepage.getWelcomeMsg(), "Welcome", "BLOCKING ISSUE - CAN NOT LOGIN TO APPLICATION");
+
+//        Assert.assertEquals(homepage.getWelcomeMsg(), "Number of days", "BLOCKING ISSUE - CAN NOT LOGIN TO APPLICATION");
         String[] splitURL = url.split("/");
         String newURL = splitURL[0]+"//"+splitURL[2]+"/user-manage-v2/users";
         driver.navigate().to(newURL);
@@ -81,7 +84,7 @@ public class ViewUserTest extends BaseTest{
     }
 
     @Test(description = "Validate edit user functionalities",priority = 1 ,dataProvider = "editUsersDP" ,enabled = true)
-    public void editUser(UsersDM usersDM) {
+    public void editUser(UsersDM usersDM) throws InterruptedException {
         //Create extent test to be logged in report using test case title
         test = extent.createTest(usersDM.getTestCaseId() + " --- " + usersDM.getTestCaseTitle());
         Log.test = test;
@@ -99,11 +102,23 @@ public class ViewUserTest extends BaseTest{
         Assert.assertEquals(actualResult,GeneralConstants.SUCCESS,GeneralConstants.POM_EXCEPTION_ERR_MSG +" While click edit button and capture user name from UI.");
 
         actualResult = addUserPage.clickSaveButton();
-        Assert.assertNotEquals(actualResult,GeneralConstants.FAILED,GeneralConstants.POM_EXCEPTION_ERR_MSG +" While click save button");
+        Assert.assertEquals(actualResult,GeneralConstants.SUCCESS,GeneralConstants.POM_EXCEPTION_ERR_MSG +" While click save button");
+
+
+        if (usersDM.getErrType().equals("Welcome"))
+            actualResult = addUserPage.getAllErrMsgs(GeneralConstants.WELCOME_MSG);
+
+        else
+            actualResult = addUserPage.getAllErrMsgs(GeneralConstants.ERR_TYPE_NOTIFICATION);
 
         Log.info(" *********  Start frontend Assertion  ********");
-        Assert.assertTrue(driver.getCurrentUrl().endsWith("users") , "Error happened while saving updated data and browser doesn't navigate to View users Page. and current URL : "+driver.getCurrentUrl());
+        Log.info("Expected massage = "+ usersDM.getExpectedMessage());
+        Assert.assertEquals(actualResult,usersDM.getExpectedMessage() , GeneralConstants.Expected_ERR_MSG);
         Log.info(" *********  Frontend Assertion passed successfully ********");
+
+        //        Assert.assertTrue(driver.getCurrentUrl().endsWith("users") , "Error happened while saving updated data and browser doesn't navigate to View users Page. and current URL : "+driver.getCurrentUrl());
+        Log.info(" *********  Frontend Assertion passed successfully ********");
+        MainPage mainPage = new MainPage(driver);
 
         Log.info(" *********  Start backend assertion  ********");
         UsersDM usersDM1 = backendService .getUserDetails(userEmail);
@@ -236,7 +251,8 @@ public class ViewUserTest extends BaseTest{
             usersDM.setStatus(resultArray.get(i).get(EditUserIndices.STATUS_INDEX).toString());
             usersDM.setMustChangePassword(resultArray.get(i).get(EditUserIndices.MUST_CHANGE_PASSWORD_INDEX).toString());
             usersDM.setPasswordNeverExpire(resultArray.get(i).get(EditUserIndices.PASSWORD_NEVER_EXPIRED_INDEX).toString());
-
+            usersDM.setErrType(resultArray.get(i).get(EditUserIndices.ERROR_MSG_TYPE).toString());
+            usersDM.setExpectedMessage(resultArray.get(i).get(EditUserIndices.EXPECTED_MASSAGE_INDEX).toString());
 
             editUserTestData.add(usersDM);
 

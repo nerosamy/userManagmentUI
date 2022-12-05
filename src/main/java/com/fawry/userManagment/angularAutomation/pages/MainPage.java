@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -36,11 +37,16 @@ public class MainPage {
 
     //locate all mat error messages dispalyed in the page
     @FindBy(xpath = "//small[contains(@class,'error')]")
+//    @FindBy(xpath = "//*[@class='col-md-12']/h4")
+
     public List<WebElement> matErrMsgs;
 
     // locate all pop-up notification errors
     @FindBy(xpath = "//*[@role='alert']//div//div")
     List<WebElement> notificationMsgs;
+
+    @FindBy(xpath = "//h6[contains(@class,'text-muted')]")
+    List<WebElement> WelcomeMsgs;
 
     @FindBy(xpath = "//*[@role='progressbar]")
     WebElement progressBar;
@@ -124,14 +130,14 @@ public class MainPage {
             throw new Exception("Web element 'dropDown' is null .. it could not be located");
         return displayedText;
     }
+
     public void selectOptionsFromMultiSelect(WebElement inputText, String testDataText) throws Exception {
 
         if ((testDataText != null && !testDataText.trim().isEmpty()))
             if (inputText != null) {
                 {
                     String[] weekDays = testDataText.split("-");
-                    if (weekDays.length != 0)
-                    {
+                    if (weekDays.length != 0) {
                         inputText.click();
                         for (int i = 0; i < weekDays.length; i++) {
                             driver.findElement(By.xpath("//li[@aria-label='" + weekDays[i] + "']")).click();
@@ -142,18 +148,33 @@ public class MainPage {
                 throw new Exception("Web element 'Input' is null .. it could not be located");
         Thread.sleep(100);
     }
+
     // Get all error messages whether mat-error or pop-up notification into one string separated with GeneralConstants.STRING_DELIMETER
     public String getAllErrMsgs(String errType) {
         Log.info("Start collecting all massages");
 
         StringBuilder allErrorMsgsString = new StringBuilder();
         try {
-            Thread.sleep(300);
+//            Thread.sleep(300);
+            if (errType.equalsIgnoreCase(GeneralConstants.WELCOME_MSG)) {
+                //wait just 3 seconds for all errors to be displayed
 
+                Log.info("Number of displayed Welcom MSGS messages in page" + WelcomeMsgs.size());
+
+
+                for (int i = 0; i < WelcomeMsgs.size(); i++) {
+                    if (WelcomeMsgs.get(i).getText().isEmpty())
+                        continue;
+                    allErrorMsgsString.append(WelcomeMsgs.get(i).getText());
+                    if (i != WelcomeMsgs.size() - 1)
+                        allErrorMsgsString.append(GeneralConstants.STRING_DELIMITER);
+                }
+            }
             if (errType.equalsIgnoreCase(GeneralConstants.ERR_TYPE_PAGE)) {
                 //wait just 3 seconds for all errors to be displayed
 
                 Log.info("Number of displayed mat error messages in page" + matErrMsgs.size());
+
 
                 for (int i = 0; i < matErrMsgs.size(); i++) {
                     if (matErrMsgs.get(i).getText().isEmpty())
@@ -209,7 +230,7 @@ public class MainPage {
         return selectedOptionString;
     }
 
-    public void waitForFileDownload(String expectedFileName)  {
+    public void waitForFileDownload(String expectedFileName) {
         FluentWait<WebDriver> wait = new FluentWait(driver)
                 .withTimeout(Duration.ofSeconds(60))
                 .pollingEvery(Duration.ofNanos(10));
@@ -236,4 +257,21 @@ public class MainPage {
         Thread.sleep(1000);
 
     }
+
+//    public void untilAngularFinishHttpCalls() {
+//        final String javaScriptToLoadAngular =
+//                "var injector = window.angular.element('body').injector();" +
+//                        "var $http = injector.get('$http');" +
+//                        "return ($http.pendingRequests.length === 0)";
+//
+//        ExpectedCondition<Boolean> pendingHttpCallsCondition = new ExpectedCondition<Boolean>() {
+//            public Boolean apply(WebDriver driver) {
+//                return ((JavascriptExecutor) driver).executeScript(javaScriptToLoadAngular).equals(true);
+//            }
+//        };
+//        WebDriverWait wait = new WebDriverWait(driver, 20); // timeout = 20 secs
+//        wait.until(pendingHttpCallsCondition);
+//    }
+
+
 }

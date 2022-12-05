@@ -12,6 +12,7 @@ import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class ViewRolesTest extends BaseTest{
 
@@ -28,7 +29,7 @@ public class ViewRolesTest extends BaseTest{
         Assert.assertEquals(navigatedToPageSuccessfully, GeneralConstants.SUCCESS, "Could not navigate to View Roles page successfully");
     }
 
-    @Test(description = "Validate List Roles functionalities",priority = 0 ,dataProvider = "listRolesDP" ,enabled = true)
+    @Test(description = "Validate List Roles functionalities",priority = 2 ,dataProvider = "listRolesDP" ,enabled = true)
     public void listRoles(RolesDM rolesDM) {
         //Create extent test to be logged in report using test case title
         test = extent.createTest(rolesDM.getTestCaseId() + " --- " + rolesDM.getTestCaseTitle());
@@ -74,7 +75,7 @@ public class ViewRolesTest extends BaseTest{
     }
 
 
-    @Test(description = "Validate edit role functionality",priority = 1 ,enabled = true)
+    @Test(description = "Validate edit role functionality",priority = 3 ,enabled = true)
     public void editRole() {
         //Create extent test to be logged in report using test case title
         test = extent.createTest("TC-22 --- Validate edit role functionality");
@@ -113,8 +114,8 @@ public class ViewRolesTest extends BaseTest{
         Log.info(" *********  Backend Assertion passed successfully ********");
     }
 
-    @Test(description = "Validate delete Un-assigned Role functionality",priority = 2 ,enabled = true)
-    public void deleteUnassignedRole() {
+    @Test(description = "Validate delete Un-assigned Role functionality",priority = 0 ,enabled = true)
+    public void deleteUnassignedRole() throws InterruptedException {
         //Create extent test to be logged in report using test case title
         test = extent.createTest("TC-23 --- Validate delete Un-assigned Role functionality");
         Log.test = test;
@@ -127,6 +128,7 @@ public class ViewRolesTest extends BaseTest{
         String actualResults = viewRolesPage.searchRoleByName(roleName);
         Assert.assertEquals(actualResults,GeneralConstants.SUCCESS,GeneralConstants.POM_EXCEPTION_ERR_MSG +" While search role by name : "+roleName);
 
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         actualResults = viewRolesPage.clickRemoveRoleButton();
         Assert.assertEquals(actualResults,GeneralConstants.SUCCESS,GeneralConstants.POM_EXCEPTION_ERR_MSG +" While click remove button.");
 
@@ -145,11 +147,11 @@ public class ViewRolesTest extends BaseTest{
 
         softAssert.assertEquals(roleStatus, "0", RolesDBTable.TABLE_NAME + "." + RolesDBTable.STATUS + GeneralConstants.MISMATCH_ERR_MSG);
 
-        softAssert.assertAll();
+       softAssert.assertAll();
         Log.info(" *********  Backend Assertion passed successfully ********");
     }
 
-    @Test(description = "Validate delete assigned Role functionality",priority = 3 ,enabled = true)
+    @Test(description = "Validate delete assigned Role functionality",priority = 1 ,enabled = true)
     public void deleteAssignedRole() {
         //Create extent test to be logged in report using test case title
         test = extent.createTest("TC-24 --- Validate delete assigned Role functionality");

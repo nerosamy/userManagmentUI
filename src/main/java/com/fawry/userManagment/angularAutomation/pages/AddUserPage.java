@@ -10,11 +10,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class AddUserPage extends MainPage{
 
@@ -53,8 +55,9 @@ public class AddUserPage extends MainPage{
     WebElement saveButton;
 
     String timeStamp = new SimpleDateFormat("hhmmssss").format(new Date());
-
+//    JSWaiter jSWaiter = new JSWaiter();
     public String setAddUsersDetails(UsersDM usersDM) {
+        String displayedMsgs;
         try {
             Log.info("Setting User details ..............");
             if(usersDM.getEmail() != "")
@@ -73,7 +76,7 @@ public class AddUserPage extends MainPage{
                 rolesDropDown.click();
                 usersDM.setRole(rolesDropDownOptions.get(0).getText());
                 rolesDropDownOptions.get(0).click();
-            }
+                    }
 
             usersDM.setBranch(selectOptionByindex(branchDropDown , "0"));
 
@@ -92,6 +95,17 @@ public class AddUserPage extends MainPage{
                 passwordNeverExpireCheckBox.click();
             }
 
+
+//            if (!usersDM.getExpectedMessage().trim().equalsIgnoreCase(GeneralConstants.SUCCESS) && !usersDM.getErrType().trim().isEmpty())
+//            {
+//                displayedMsgs = getAllErrMsgs(usersDM.getErrType().trim());
+//
+//                // displayedMsgs = searchGetAllErrMsgs(adminObj.getErrType().trim().equalsIgnoreCase(GeneralConstants.ERR_TYPE_PAGE)? GeneralConstants.ERR_TYPE_PAGE : GeneralConstants.ERR_TYPE_CustomerNotFound);
+//                //In case user didn't login successfully, return all displayed error messages in one string separated by #
+//                if(!displayedMsgs.isEmpty())
+//                    return displayedMsgs;
+//            }
+
         } catch (Exception e) {
             Log.error("Error occurred in " + new Object() {
             }
@@ -109,7 +123,13 @@ public class AddUserPage extends MainPage{
         try {
             Log.info("Edit user's data in GUI");
             if (usersDM.getRole() != "") {
+                rolesDropDown.click();
+                usersDM.setRole(rolesDropDownOptions.get(0).getText());
+                rolesDropDownOptions.get(0).click();
+                rolesDropDown.click();
                 ArrayList<String> selectedOptions = unselectAllOptions();
+                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
                 rolesDropDown.click();
                 for (int i = 0; i< rolesDropDownOptions.size() ; i++)
                 {
@@ -121,13 +141,25 @@ public class AddUserPage extends MainPage{
                     }
                 }
             }
-
-            usersDM.setBranch(selectAnotherOption(branchDropDown , usersDM.getBranch()));
+            if (usersDM.getBranch() != "") {
+                rolesDropDown.click();
+                usersDM.setRole(rolesDropDownOptions.get(0).getText());
+                rolesDropDownOptions.get(0).click();
+                rolesDropDown.click();
+                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                usersDM.setBranch(selectAnotherOption(branchDropDown, usersDM.getBranch()));
+                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            }
 
             if (usersDM.getStatus() != "") {
+                rolesDropDown.click();
+                usersDM.setRole(rolesDropDownOptions.get(0).getText());
+                rolesDropDownOptions.get(0).click();
+
                 for (int i = 0; i < statusRadioButtons.size(); i++) {
                     if (!statusRadioButtons.get(i).getAttribute("class").contains("p-radiobutton-checked")) {
                         statusRadioButtons.get(i).click();
+                        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                         usersDM.setStatus(statusText.get(i).getText());
                         break;
                     }
@@ -135,8 +167,17 @@ public class AddUserPage extends MainPage{
             }
             if (usersDM.getMustChangePassword() != "")
             {
-                WebElement mustChangePasswordFlag = mustChangePasswordCheckBox.findElement(By.xpath("//div"));
+                rolesDropDown.click();
+                usersDM.setRole(rolesDropDownOptions.get(0).getText());
+                rolesDropDownOptions.get(0).click();
+                rolesDropDown.click();
                 mustChangePasswordCheckBox.click();
+
+//                WebElement mustChangePasswordFlag = mustChangePasswordCheckBox.findElement(By.xpath("//p-checkbox[@name='mustChangePassword']/div"));
+               WebElement mustChangePasswordFlag = driver.findElement(By.xpath("//p-checkbox[@name='mustChangePassword']/div"));
+                System.out.println("mustChangePasswordFlag : " +mustChangePasswordFlag.getAttribute("class"));
+                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
                 if (mustChangePasswordFlag.getAttribute("class").contains("p-checkbox-checked"))
                 {
                     usersDM.setMustChangePassword("1");
@@ -150,8 +191,17 @@ public class AddUserPage extends MainPage{
 
             if (usersDM.getPasswordNeverExpire() != "")
             {
-                WebElement passwordNeverExpireFlag = passwordNeverExpireCheckBox.findElement(By.xpath("//div"));
+                rolesDropDown.click();
+                usersDM.setRole(rolesDropDownOptions.get(0).getText());
+                rolesDropDownOptions.get(0).click();
+                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                rolesDropDown.click();
+
                 passwordNeverExpireCheckBox.click();
+     WebElement passwordNeverExpireFlag = driver.findElement(By.xpath("//p-checkbox[@name='passwordNeverExpire']/div"));
+
+                System.out.println("getPasswordNeverExpire : " +passwordNeverExpireFlag.getAttribute("class"));
+                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                 if (passwordNeverExpireFlag.getAttribute("class").contains("p-checkbox-checked"))
                 {
                     usersDM.setPasswordNeverExpire("1");
@@ -180,8 +230,9 @@ public class AddUserPage extends MainPage{
         try {
             Log.info("click save button");
             scrollIntoView(saveButton);
+
             saveButton.click();
-            Thread.sleep(2000);
+
         } catch (Exception e) {
             Log.error("Error occurred in " + new Object() {
             }
@@ -202,8 +253,12 @@ public class AddUserPage extends MainPage{
             int size = rolesDropDownOptions.size();
             for (int i = 0 ; i < size ; i++)
             {
+                WebDriverWait wait=new WebDriverWait(driver, 20);
+
                 if (rolesDropDownOptions.get(i).getAttribute("class").contains("p-highlight"))
                 {
+                    WebDriverWait wait2=new WebDriverWait(driver, 20);
+
                     selectedOptions.add(rolesDropDownOptions.get(i).getText());
                     rolesDropDownOptions.get(i).click();
                 }

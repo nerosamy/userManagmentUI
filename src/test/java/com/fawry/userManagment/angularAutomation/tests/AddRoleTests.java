@@ -66,6 +66,7 @@ public class AddRoleTests extends BaseTest{
         assertAddRole(rolesDM ,actualResults , addRolePage.permissionName);
     }
 
+
     public void assertAddRole(RolesDM frontEndModel , String actualResults , ArrayList permissionList)
     {
         Log.info(" *********  Start frontend Assertion  ********");
