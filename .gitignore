@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 /.idea/
 /.settings/
 /target/
 /test-output/
+=======
+/test-output/
+/automation.iml
+/.project
+/.classpath
+/promoLoyaltyTA.iml
+/.settings/
+/.idea/
+/target/
+>>>>>>> master
