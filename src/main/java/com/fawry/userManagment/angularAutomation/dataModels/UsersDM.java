@@ -1,7 +1,15 @@
 package com.fawry.userManagment.angularAutomation.dataModels;
 
 public class UsersDM extends MainDataModel{
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    private String name;
     private String email;
     private String phone;
     private String role;

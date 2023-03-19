@@ -7,11 +7,17 @@ import com.fawry.userManagment.angularAutomation.dataModels.RolesDM;
 import com.fawry.userManagment.angularAutomation.pages.AddRolePage;
 import com.fawry.userManagment.angularAutomation.pages.ViewRolesPage;
 import com.fawry.userManagment.angularAutomation.utils.Log;
+import com.google.errorprone.annotations.Var;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class ViewRolesTest extends BaseTest{
 
@@ -76,6 +82,7 @@ public class ViewRolesTest extends BaseTest{
 
     @Test(description = "Validate edit role functionality",priority = 1 ,enabled = true)
     public void editRole() {
+
         //Create extent test to be logged in report using test case title
         test = extent.createTest("TC-22 --- Validate edit role functionality");
         Log.test = test;
@@ -114,7 +121,7 @@ public class ViewRolesTest extends BaseTest{
     }
 
     @Test(description = "Validate delete Un-assigned Role functionality",priority = 2 ,enabled = true)
-    public void deleteUnassignedRole() {
+    public void deleteUnassignedRole(){
         //Create extent test to be logged in report using test case title
         test = extent.createTest("TC-23 --- Validate delete Un-assigned Role functionality");
         Log.test = test;
@@ -126,7 +133,11 @@ public class ViewRolesTest extends BaseTest{
         ViewRolesPage viewRolesPage = new ViewRolesPage(driver);
         String actualResults = viewRolesPage.searchRoleByName(roleName);
         Assert.assertEquals(actualResults,GeneralConstants.SUCCESS,GeneralConstants.POM_EXCEPTION_ERR_MSG +" While search role by name : "+roleName);
-
+        WebDriverWait wait = new WebDriverWait(driver, 600);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@role='alert']//div//div"))) ;
+      Log.info("visbled ok");
+        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@role='alert']//div//div")));
+        Log.info("Invisbled ok");
         actualResults = viewRolesPage.clickRemoveRoleButton();
         Assert.assertEquals(actualResults,GeneralConstants.SUCCESS,GeneralConstants.POM_EXCEPTION_ERR_MSG +" While click remove button.");
 
@@ -145,7 +156,7 @@ public class ViewRolesTest extends BaseTest{
 
         softAssert.assertEquals(roleStatus, "0", RolesDBTable.TABLE_NAME + "." + RolesDBTable.STATUS + GeneralConstants.MISMATCH_ERR_MSG);
 
-        softAssert.assertAll();
+       softAssert.assertAll();
         Log.info(" *********  Backend Assertion passed successfully ********");
     }
 

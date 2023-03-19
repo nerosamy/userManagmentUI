@@ -28,13 +28,15 @@ public class AddRolePage extends MainPage{
     @FindBy(name="desc")
     WebElement descriptionTextBox;
 
-    @FindBy(xpath = "//*[@class='p-inputswitch-slider']")
+    //@FindBy(xpath = "//*[@class='p-inputswitch-slider']")
+      @FindBy(id ="merchant-profile-settings-permission")
    List<WebElement> permissionsRadioButtons;
 
     @FindBy(xpath="//*[@class='p-datatable-tbody']//tr//td[1]")
     List<WebElement> permissionsText;
 
-    @FindBy(xpath = "//span[contains(text(),'Save')]")
+  //  @FindBy(xpath = "//span[contains(text(),'Save')]")
+    @FindBy(id ="users_addRole_saveRole")
     WebElement saveButton;
 
     String timeStamp = new SimpleDateFormat("hhmmssss").format(new Date());

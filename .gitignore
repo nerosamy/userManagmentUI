@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+/.idea/
+/.settings/
+/target/
+/test-output/
+=======
 /test-output/
 /automation.iml
 /.project
@@ -6,3 +12,4 @@
 /.settings/
 /.idea/
 /target/
+>>>>>>> master
