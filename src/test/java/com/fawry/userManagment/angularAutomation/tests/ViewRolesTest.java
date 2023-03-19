@@ -7,6 +7,11 @@ import com.fawry.userManagment.angularAutomation.dataModels.RolesDM;
 import com.fawry.userManagment.angularAutomation.pages.AddRolePage;
 import com.fawry.userManagment.angularAutomation.pages.ViewRolesPage;
 import com.fawry.userManagment.angularAutomation.utils.Log;
+import com.google.errorprone.annotations.Var;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
@@ -29,7 +34,7 @@ public class ViewRolesTest extends BaseTest{
         Assert.assertEquals(navigatedToPageSuccessfully, GeneralConstants.SUCCESS, "Could not navigate to View Roles page successfully");
     }
 
-    @Test(description = "Validate List Roles functionalities",priority = 2 ,dataProvider = "listRolesDP" ,enabled = true)
+    @Test(description = "Validate List Roles functionalities",priority = 0 ,dataProvider = "listRolesDP" ,enabled = true)
     public void listRoles(RolesDM rolesDM) {
         //Create extent test to be logged in report using test case title
         test = extent.createTest(rolesDM.getTestCaseId() + " --- " + rolesDM.getTestCaseTitle());
@@ -75,8 +80,9 @@ public class ViewRolesTest extends BaseTest{
     }
 
 
-    @Test(description = "Validate edit role functionality",priority = 3 ,enabled = true)
+    @Test(description = "Validate edit role functionality",priority = 1 ,enabled = true)
     public void editRole() {
+
         //Create extent test to be logged in report using test case title
         test = extent.createTest("TC-22 --- Validate edit role functionality");
         Log.test = test;
@@ -114,8 +120,8 @@ public class ViewRolesTest extends BaseTest{
         Log.info(" *********  Backend Assertion passed successfully ********");
     }
 
-    @Test(description = "Validate delete Un-assigned Role functionality",priority = 0 ,enabled = true)
-    public void deleteUnassignedRole() throws InterruptedException {
+    @Test(description = "Validate delete Un-assigned Role functionality",priority = 2 ,enabled = true)
+    public void deleteUnassignedRole(){
         //Create extent test to be logged in report using test case title
         test = extent.createTest("TC-23 --- Validate delete Un-assigned Role functionality");
         Log.test = test;
@@ -127,8 +133,11 @@ public class ViewRolesTest extends BaseTest{
         ViewRolesPage viewRolesPage = new ViewRolesPage(driver);
         String actualResults = viewRolesPage.searchRoleByName(roleName);
         Assert.assertEquals(actualResults,GeneralConstants.SUCCESS,GeneralConstants.POM_EXCEPTION_ERR_MSG +" While search role by name : "+roleName);
-
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+        WebDriverWait wait = new WebDriverWait(driver, 600);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@role='alert']//div//div"))) ;
+      Log.info("visbled ok");
+        new WebDriverWait(driver, 10).until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@role='alert']//div//div")));
+        Log.info("Invisbled ok");
         actualResults = viewRolesPage.clickRemoveRoleButton();
         Assert.assertEquals(actualResults,GeneralConstants.SUCCESS,GeneralConstants.POM_EXCEPTION_ERR_MSG +" While click remove button.");
 
@@ -151,7 +160,7 @@ public class ViewRolesTest extends BaseTest{
         Log.info(" *********  Backend Assertion passed successfully ********");
     }
 
-    @Test(description = "Validate delete assigned Role functionality",priority = 1 ,enabled = true)
+    @Test(description = "Validate delete assigned Role functionality",priority = 3 ,enabled = true)
     public void deleteAssignedRole() {
         //Create extent test to be logged in report using test case title
         test = extent.createTest("TC-24 --- Validate delete assigned Role functionality");

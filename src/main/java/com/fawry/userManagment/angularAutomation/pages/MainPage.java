@@ -37,7 +37,6 @@ public class MainPage {
 
     //locate all mat error messages dispalyed in the page
     @FindBy(xpath = "//small[contains(@class,'error')]")
-//    @FindBy(xpath = "//*[@class='col-md-12']/h4")
 
     public List<WebElement> matErrMsgs;
 
@@ -257,21 +256,6 @@ public class MainPage {
         Thread.sleep(1000);
 
     }
-
-//    public void untilAngularFinishHttpCalls() {
-//        final String javaScriptToLoadAngular =
-//                "var injector = window.angular.element('body').injector();" +
-//                        "var $http = injector.get('$http');" +
-//                        "return ($http.pendingRequests.length === 0)";
-//
-//        ExpectedCondition<Boolean> pendingHttpCallsCondition = new ExpectedCondition<Boolean>() {
-//            public Boolean apply(WebDriver driver) {
-//                return ((JavascriptExecutor) driver).executeScript(javaScriptToLoadAngular).equals(true);
-//            }
-//        };
-//        WebDriverWait wait = new WebDriverWait(driver, 20); // timeout = 20 secs
-//        wait.until(pendingHttpCallsCondition);
-//    }
 
 
 }

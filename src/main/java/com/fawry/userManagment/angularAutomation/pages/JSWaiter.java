@@ -39,17 +39,7 @@ public class JSWaiter {
         String angularReadyScript = "return angular.element(document).injector().get('$http').pendingRequests.length === 0";
         angularLoads(angularReadyScript);
     }
-//    private void waitUntilJSReady() {
-//        try {
-//            ExpectedCondition<Boolean> jsLoad = driver -> ((JavascriptExecutor) this.driver)
-//                    .executeScript("return document.readyState").toString().equals("complete");
-//            boolean jsReady = jsExec.executeScript("return document.readyState").toString().equals("complete");
-//            if (!jsReady) {
-//                jsWait.until(jsLoad);
-//            }
-//        } catch (WebDriverException ignored) {
-//        }
-//    }
+
     private void waitUntilJQueryReady() {
         Boolean jQueryDefined = (Boolean) jsExec.executeScript("return typeof jQuery != 'undefined'");
         if (jQueryDefined) {
@@ -102,7 +92,7 @@ public class JSWaiter {
         }
     }
     public void waitAllRequest() {
-     //   waitUntilJSReady();
+
         ajaxComplete();
         waitUntilJQueryReady();
         waitUntilAngularReady();

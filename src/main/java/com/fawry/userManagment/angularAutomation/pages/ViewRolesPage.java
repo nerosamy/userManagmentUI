@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,17 +19,20 @@ public class ViewRolesPage extends MainPage{
         super(driver);
     }
 
-    @FindBy(name="roleName")
+//    @FindBy(name="roleName")
+@FindBy(id="users_roles_name")
     WebElement roleNameTextInput;
 
 
-    @FindBy(name="permissions")
+//    @FindBy(name="permissions")
+@FindBy(id="users_addRole_permission")
     WebElement permissionsDropDown;
 
     @FindBy(xpath = "//p-multiselectitem//li")
     List<WebElement> permissionList;
 
-    @FindBy(xpath = "//span[contains(text(),'Search')]")
+//    @FindBy(xpath = "//span[contains(text(),'Search')]")
+@FindBy(id = "users_roles_search")
     WebElement searchBtn;
 
     @FindBy(xpath = "//tbody//tr")
@@ -40,10 +44,12 @@ public class ViewRolesPage extends MainPage{
     @FindBy(xpath = "//h3[contains(text(),'There is no data')]")
     List<WebElement> noDataMassage;
 
-    @FindBy(xpath = "//button[@icon='pi pi-pencil']")
+//    @FindBy(xpath = "//button[@icon='pi pi-pencil']")
+    @FindBy(id ="users_roles_updateRole")
     List<WebElement> editRoleButton;
 
-    @FindBy(xpath = "//button[@icon='pi pi-trash']")
+//    @FindBy(xpath = "//button[@icon='pi pi-trash']")
+@FindBy(id = "users_roles_removeRole")
     List<WebElement> deleteRoleButton;
 
     @FindBy(xpath = "//span[contains(text(),'Yes')]")
@@ -151,10 +157,9 @@ public class ViewRolesPage extends MainPage{
     public String clickRemoveRoleButton()
     {
         try {
+
             Log.info("Click remove button");
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             deleteRoleButton.get(0).click();
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             yesButton.click();
         } catch (Exception e) {
             Log.error("Error occurred in " + new Object() {

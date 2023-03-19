@@ -18,7 +18,8 @@ public class HomePage extends MainPage{
     }
 
     // Initialize web elements
-    @FindBy(tagName = "small")
+//    @FindBy(tagName = "small")
+ @FindBy(xpath = "//small[contains(text(),'Welcome')]")
     WebElement welcomeMsg;
     @FindBy(xpath = "//button/span[contains(text(), 'Sign out')]")
     WebElement signOutBtn;
@@ -27,7 +28,9 @@ public class HomePage extends MainPage{
     @FindBy(xpath = "//span[contains(text(),'Manage Users')]")
     WebElement mangeUsersDropdownMenu;
 
-    @FindBy(xpath = "//*[@href='/user-manage-v2/users']")
+    //@FindBy(xpath = "//*[@href='/user-manage-v2/users']")
+    @FindBy(xpath = "//span[contains(text(),'View Users')]")
+
     WebElement viewUsersMenuItem;
 
     @FindBy(xpath = "//*[@href='/user-manage-v2/users/add']")
@@ -37,10 +40,12 @@ public class HomePage extends MainPage{
     @FindBy(xpath = "//span[contains(text(),'Manage Roles')]")
     WebElement mangeRolesDropdownMenu;
 
-    @FindBy(xpath = "//*[@href='/user-manage-v2/roles']")
+    //@FindBy(xpath = "//*[@href='/user-manage-v2/roles']")
+    @FindBy(xpath = "//span[contains(text(),'View Roles')]")
     WebElement viewRolesMenuItem;
 
-    @FindBy(xpath = "//*[@href='/user-manage-v2/roles/add']")
+//    @FindBy(xpath = "//*[@href='/user-manage-v2/roles/add']")
+    @FindBy(xpath = "//span[contains(text(),'Add Role')]")
     WebElement addRolesMenuItem;
 
 
@@ -95,7 +100,7 @@ public class HomePage extends MainPage{
                 selectBusinessEntityMenuLink();
                 wait.until(ExpectedConditions.elementToBeClickable(viewBusinessEntityMenuItem));*/
             selectMangeUsersMenuLink();
-            viewUsersMenuItem.sendKeys(Keys.RETURN);
+            viewUsersMenuItem.click();
 
         } catch (Exception e) {
             Log.error("Error occurred in " + new Object() {
@@ -137,7 +142,8 @@ public class HomePage extends MainPage{
         try {
             Log.info("Navigate to View Roles page");
             selectURolesManagementMenuLink();
-            viewRolesMenuItem.sendKeys(Keys.RETURN);
+            viewRolesMenuItem.click();
+//            viewRolesMenuItem.sendKeys(Keys.RETURN);
         } catch (Exception e) {
             Log.error("Error occurred in " + new Object() {
             }

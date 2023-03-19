@@ -24,34 +24,50 @@ public class AddUserPage extends MainPage{
         super(driver);
     }
 
-    @FindBy(xpath =  "//input[@name='email']")
+//    @FindBy(xpath =  "//input[@name='email']")
+    @FindBy(id = "users_addUser_email")
     WebElement emailTextBox;
+
+
+    @FindBy(id = "users_addUser_name")
+    WebElement nameTextBox;
 
     @FindBy(id = "phone")
     WebElement phoneTextBox;
 
-    @FindBy(xpath =  "//p-multiselect[@name='roles']")
+//    @FindBy(xpath =  "//p-multiselect[@name='roles']")
+    @FindBy(id ="users_addUser_role")
     WebElement rolesDropDown;
 
     @FindBy(xpath =  "//p-multiselectitem//li")
     List<WebElement> rolesDropDownOptions;
 
-    @FindBy(xpath =  "//p-dropdown[@name='branch']")
+//    @FindBy(xpath =  "//p-dropdown[@name='branch']")
+            @FindBy(id ="users_addUser_branch")
     WebElement branchDropDown;
 
-    @FindBy(xpath =  "//p-radiobutton/div")
+//    @FindBy(xpath =  "//p-radiobutton/div")
+ @ FindBy(id="users_addUser_status")
     List<WebElement> statusRadioButtons;
 
-    @FindBy(xpath =  "//p-radiobutton/div//input")
-    List<WebElement> statusText;
+//    @FindBy(xpath =  "//p-radiobutton/div//input")
+//p-radiobutton[@id="users_addUser_status"]/div//input
+@FindBy(xpath =  "//p-radiobutton[@id='users_addUser_status']/div//input")
 
-    @FindBy(xpath =  "//p-checkbox[@name='mustChangePassword']")
+List<WebElement> statusText;
+
+//    @FindBy(xpath =  "//p-checkbox[@name='mustChangePassword']")
+@FindBy(id = "users_addUser_mustChangePassword")
     WebElement mustChangePasswordCheckBox;
 
-    @FindBy(xpath =  "//p-checkbox[@name='passwordNeverExpire']")
+//    @FindBy(xpath =  "//p-checkbox[@name='passwordNeverExpire']")
+@FindBy(id = "users_addUser_passwordNeverExpire")
     WebElement passwordNeverExpireCheckBox;
 
-    @FindBy(xpath = "//span[contains(text(),'Save')]")
+    @FindBy(xpath =  "//*[contains(@role,'checkbox')]")
+    WebElement selectAllRole;
+//    @FindBy(xpath = "//span[contains(text(),'Save')]")
+@FindBy(id = "users_addUser_saveRole")
     WebElement saveButton;
 
     String timeStamp = new SimpleDateFormat("hhmmssss").format(new Date());
@@ -66,6 +82,14 @@ public class AddUserPage extends MainPage{
                 setTextValue(emailTextBox , usersDM.getEmail());
             }
 
+
+            if(usersDM.getName() != "")
+            {
+                usersDM.setName(usersDM.getName()+timeStamp);
+                setTextValue(nameTextBox , usersDM.getName());
+            }
+
+
             if(usersDM.getPhone() != "")
             {
                 usersDM.setPhone(usersDM.getPhone()+timeStamp);
@@ -73,14 +97,14 @@ public class AddUserPage extends MainPage{
             }
 
             if(!usersDM.getRole().equals("")) {
+
                 rolesDropDown.click();
-                usersDM.setRole(rolesDropDownOptions.get(0).getText());
-                rolesDropDownOptions.get(0).click();
+                usersDM.setRole(rolesDropDownOptions.get(1).getText());
+                rolesDropDownOptions.get(1).click();
                     }
 
             usersDM.setBranch(selectOptionByindex(branchDropDown , "0"));
 
-            System.out.println("//input[@value='"+usersDM.getStatus()+"']/ancestor::p-radiobutton");
             driver.findElement(By.xpath("//input[@value='"+usersDM.getStatus()+"']/ancestor::p-radiobutton")).click();
 
             mustChangePasswordCheckBox.click();
@@ -96,15 +120,6 @@ public class AddUserPage extends MainPage{
             }
 
 
-//            if (!usersDM.getExpectedMessage().trim().equalsIgnoreCase(GeneralConstants.SUCCESS) && !usersDM.getErrType().trim().isEmpty())
-//            {
-//                displayedMsgs = getAllErrMsgs(usersDM.getErrType().trim());
-//
-//                // displayedMsgs = searchGetAllErrMsgs(adminObj.getErrType().trim().equalsIgnoreCase(GeneralConstants.ERR_TYPE_PAGE)? GeneralConstants.ERR_TYPE_PAGE : GeneralConstants.ERR_TYPE_CustomerNotFound);
-//                //In case user didn't login successfully, return all displayed error messages in one string separated by #
-//                if(!displayedMsgs.isEmpty())
-//                    return displayedMsgs;
-//            }
 
         } catch (Exception e) {
             Log.error("Error occurred in " + new Object() {
@@ -123,12 +138,9 @@ public class AddUserPage extends MainPage{
         try {
             Log.info("Edit user's data in GUI");
             if (usersDM.getRole() != "") {
-                rolesDropDown.click();
-                usersDM.setRole(rolesDropDownOptions.get(0).getText());
-                rolesDropDownOptions.get(0).click();
-                rolesDropDown.click();
+                selectRole();
+
                 ArrayList<String> selectedOptions = unselectAllOptions();
-                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
                 rolesDropDown.click();
                 for (int i = 0; i< rolesDropDownOptions.size() ; i++)
@@ -136,30 +148,23 @@ public class AddUserPage extends MainPage{
                     if (!selectedOptions.contains(rolesDropDownOptions.get(i).getText()))
                     {
                         usersDM.setRole(rolesDropDownOptions.get(i).getText());
+                        System.out.println("edit role option" +rolesDropDownOptions);
                         rolesDropDownOptions.get(i).click();
                         break;
                     }
                 }
             }
             if (usersDM.getBranch() != "") {
-                rolesDropDown.click();
-                usersDM.setRole(rolesDropDownOptions.get(0).getText());
-                rolesDropDownOptions.get(0).click();
-                rolesDropDown.click();
-                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                 usersDM.setBranch(selectAnotherOption(branchDropDown, usersDM.getBranch()));
-                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                selectRole();
+
             }
 
             if (usersDM.getStatus() != "") {
-                rolesDropDown.click();
-                usersDM.setRole(rolesDropDownOptions.get(0).getText());
-                rolesDropDownOptions.get(0).click();
-
+    selectRole();
                 for (int i = 0; i < statusRadioButtons.size(); i++) {
                     if (!statusRadioButtons.get(i).getAttribute("class").contains("p-radiobutton-checked")) {
                         statusRadioButtons.get(i).click();
-                        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
                         usersDM.setStatus(statusText.get(i).getText());
                         break;
                     }
@@ -167,16 +172,11 @@ public class AddUserPage extends MainPage{
             }
             if (usersDM.getMustChangePassword() != "")
             {
-                rolesDropDown.click();
-                usersDM.setRole(rolesDropDownOptions.get(0).getText());
-                rolesDropDownOptions.get(0).click();
-                rolesDropDown.click();
+       selectRole();
                 mustChangePasswordCheckBox.click();
 
-//                WebElement mustChangePasswordFlag = mustChangePasswordCheckBox.findElement(By.xpath("//p-checkbox[@name='mustChangePassword']/div"));
                WebElement mustChangePasswordFlag = driver.findElement(By.xpath("//p-checkbox[@name='mustChangePassword']/div"));
-                System.out.println("mustChangePasswordFlag : " +mustChangePasswordFlag.getAttribute("class"));
-                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//                System.out.println("mustChangePasswordFlag : " +mustChangePasswordFlag.getAttribute("class"));
 
                 if (mustChangePasswordFlag.getAttribute("class").contains("p-checkbox-checked"))
                 {
@@ -191,17 +191,11 @@ public class AddUserPage extends MainPage{
 
             if (usersDM.getPasswordNeverExpire() != "")
             {
-                rolesDropDown.click();
-                usersDM.setRole(rolesDropDownOptions.get(0).getText());
-                rolesDropDownOptions.get(0).click();
-                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                rolesDropDown.click();
-
+ selectRole();
                 passwordNeverExpireCheckBox.click();
      WebElement passwordNeverExpireFlag = driver.findElement(By.xpath("//p-checkbox[@name='passwordNeverExpire']/div"));
 
                 System.out.println("getPasswordNeverExpire : " +passwordNeverExpireFlag.getAttribute("class"));
-                driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                 if (passwordNeverExpireFlag.getAttribute("class").contains("p-checkbox-checked"))
                 {
                     usersDM.setPasswordNeverExpire("1");
@@ -226,6 +220,35 @@ public class AddUserPage extends MainPage{
         return GeneralConstants.SUCCESS;
     }
 
+
+    public String selectRole() {
+try{
+        rolesDropDown.click();
+        WebDriverWait waitUntilRoleSelected = new WebDriverWait(driver, 10);
+        Log.info("Wait until Role Selected");
+        waitUntilRoleSelected.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@class,'p-multiselect-items-wrapper')]")));
+
+        if (rolesDropDownOptions.get(3).getAttribute("class").contains("p-highlight"))
+            rolesDropDownOptions.get(2).click();
+        else
+            rolesDropDownOptions.get(3).click();
+
+        waitUntilRoleSelected.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@class,'filled ')]")));
+        rolesDropDown.click();
+        Log.info(" Role Selected");
+
+} catch (Exception e) {
+    Log.error("Error occurred in " + new Object() {
+    }
+            .getClass().getName() + "." + new Object() {
+    }
+            .getClass()
+            .getEnclosingMethod()
+            .getName(), e);
+    return GeneralConstants.FAILED;
+}
+        return GeneralConstants.SUCCESS;
+    }
     public String clickSaveButton() {
         try {
             Log.info("click save button");
@@ -251,15 +274,15 @@ public class AddUserPage extends MainPage{
         try {
             rolesDropDown.click();
             int size = rolesDropDownOptions.size();
+
             for (int i = 0 ; i < size ; i++)
             {
-                WebDriverWait wait=new WebDriverWait(driver, 20);
 
-                if (rolesDropDownOptions.get(i).getAttribute("class").contains("p-highlight"))
-                {
-                    WebDriverWait wait2=new WebDriverWait(driver, 20);
+                    if (selectAllRole.getAttribute("class").contains("p-highlight"))
 
+                    {
                     selectedOptions.add(rolesDropDownOptions.get(i).getText());
+                    System.out.println("roles option is " + selectedOptions);
                     rolesDropDownOptions.get(i).click();
                 }
             }

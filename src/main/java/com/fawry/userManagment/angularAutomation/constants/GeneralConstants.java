@@ -98,6 +98,8 @@ public class GeneralConstants {
 
 	// **********************************************************************************************************
 	public static final String SUCCESS_MASSAGE = "success#Operation done successfully!";
+	public static final String UNASSIGNED_ROLE_SUCCESS_MASSAGE = "success#Operation done successfully!#success#Operation done successfully!";
+
 	public static final String DELETE_ERROR_MASSAGE = "Error#Unable to delete role 5150057, it has users";
 
 

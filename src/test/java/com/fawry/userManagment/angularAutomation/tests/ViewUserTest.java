@@ -84,7 +84,7 @@ public class ViewUserTest extends BaseTest{
     }
 
     @Test(description = "Validate edit user functionalities",priority = 1 ,dataProvider = "editUsersDP" ,enabled = true)
-    public void editUser(UsersDM usersDM) throws InterruptedException {
+    public void editUser(UsersDM usersDM) {
         //Create extent test to be logged in report using test case title
         test = extent.createTest(usersDM.getTestCaseId() + " --- " + usersDM.getTestCaseTitle());
         Log.test = test;
@@ -117,7 +117,6 @@ public class ViewUserTest extends BaseTest{
         Log.info(" *********  Frontend Assertion passed successfully ********");
 
         //        Assert.assertTrue(driver.getCurrentUrl().endsWith("users") , "Error happened while saving updated data and browser doesn't navigate to View users Page. and current URL : "+driver.getCurrentUrl());
-        Log.info(" *********  Frontend Assertion passed successfully ********");
         MainPage mainPage = new MainPage(driver);
 
         Log.info(" *********  Start backend assertion  ********");

@@ -28,23 +28,30 @@ public class ViewUserPage extends MainPage{
     @FindBy(name="status")
     WebElement statusDropdown;
 
-    @FindBy(xpath = "//span[contains(text(),'Search')]")
+//    @FindBy(xpath = "//span[contains(text(),'Search')]")
+@FindBy(id ="users_users_search")
+
     WebElement searchButton;
 
     @FindBy(xpath = "//*[contains(text(),'No users found')]")
     List<WebElement> noDataMassage;
 
+    //p-table[@id='user-manage-ui-users-table']//tbody//tr
     @FindBy(xpath = "//tbody//tr")
     List<WebElement> searchResultsRows;
 
 
-    @FindBy(xpath = "//*[contains(@class,'p-paginator-next')]")
+
+   @FindBy(xpath = "//*[contains(@class,'p-paginator-next')]")
     WebElement nextPageButton;
 
-    @FindBy(xpath = "//button[@icon='pi pi-pencil']")
+    @FindBy(id = "users_users_edit")
+   // @FindBy(xpath = "//span[contains(text(),'Search')]")
+
     List<WebElement> editUserButton;
 
-    @FindBy(xpath = "//button[@icon='pi pi-trash']")
+//    @FindBy(xpath = "//button[@icon='pi pi-trash']")
+    @FindBy(id = "users_users_confirmDelete")
     List<WebElement> deleteUserButton;
 
     @FindBy(xpath = "//span[contains(text(),'Yes')]")

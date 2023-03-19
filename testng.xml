@@ -4,19 +4,19 @@
 
 <suite name="User management "  verbose="5" preserve-order="true" >
 	<parameter name="browserType" value="Chrome" />
-	<parameter name="url" value="http://10.95.0.178/be-login" />
+	<parameter name="url" value="https://delta.consumer.fawry.io/be-login" />
 
 	<test name="Users Management Module Tests">
 		<classes>
-<!--			<class name="com.fawry.userManagment.angularAutomation.tests.AddUserTests" />-->
-<!--				    	<class name="com.fawry.userManagment.angularAutomation.tests.AddRoleTests" />-->
 
 
-<!--			<class name="com.fawry.userManagment.angularAutomation.tests.AddUserTests" />-->
-<!--			<class name="com.fawry.userManagment.angularAutomation.tests.ViewUserTest" />-->
 
-<!--			<class name="com.fawry.userManagment.angularAutomation.tests.AddRoleTests" />-->
+			<class name="com.fawry.userManagment.angularAutomation.tests.AddRoleTests" />
 			<class name="com.fawry.userManagment.angularAutomation.tests.ViewRolesTest" />
+
+			<class name="com.fawry.userManagment.angularAutomation.tests.AddUserTests" />
+
+			<class name="com.fawry.userManagment.angularAutomation.tests.ViewUserTest" />
 
 
 		</classes>

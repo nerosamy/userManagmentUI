@@ -101,6 +101,7 @@ public class AddUserTests extends BaseTest{
             usersDM.setTestCaseId(resultArray.get(i).get(AddUserIndices.TEST_CASE_ID_INDEX).toString());
             usersDM.setTestCaseTitle(resultArray.get(i).get(AddUserIndices.TEST_CASE_TITLE_INDEX).toString());
             usersDM.setTestScope(resultArray.get(i).get(AddUserIndices.TEST_SCOPE_INDEX).toString());
+            usersDM.setName(resultArray.get(i).get(AddUserIndices.NAME_INDEX).toString());
             usersDM.setEmail(resultArray.get(i).get(AddUserIndices.EMAIL_INDEX).toString());
             usersDM.setPhone(resultArray.get(i).get(AddUserIndices.PHONE_INDEX).toString());
             usersDM.setRole(resultArray.get(i).get(AddUserIndices.ROLE_INDEX).toString());
