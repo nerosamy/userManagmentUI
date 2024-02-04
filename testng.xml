@@ -9,15 +9,10 @@
 	<test name="Users Management Module Tests">
 		<classes>
 
-
-
-			<class name="com.fawry.userManagment.angularAutomation.tests.AddRoleTests" />
-			<class name="com.fawry.userManagment.angularAutomation.tests.ViewRolesTest" />
-
 			<class name="com.fawry.userManagment.angularAutomation.tests.AddUserTests" />
-
+			<class name="com.fawry.userManagment.angularAutomation.tests.ViewRolesTest" />
+			<class name="com.fawry.userManagment.angularAutomation.tests.AddRoleTests" />
 			<class name="com.fawry.userManagment.angularAutomation.tests.ViewUserTest" />
-
 
 		</classes>
 	</test>
